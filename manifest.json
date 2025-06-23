@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "Cryptomail",
+    "version": "1.0",
+    "description": "Criptografe e descriptografe seus e-mails no Gmail de forma simples.",
+    "permissions": [
+      "storage"
+    ],
+    "host_permissions": [
+      "https://mail.google.com/",
+      "https://keys.openpgp.org/"
+    ],
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png"
+      },
+      "default_title": "Cryptomail",
+      "default_popup": "popup.html"
+    },
+    "options_page": "options.html",
+    "content_scripts": [
+      {
+        "matches": ["https://mail.google.com/*"],
+        "js": ["lib/openpgp.min.js", "content.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["icons/*.png"],
+        "matches": ["https://mail.google.com/*"]
+      }
+    ]
+  }
