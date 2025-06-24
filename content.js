@@ -180,7 +180,8 @@ function scanAndHandleDecryptableMessages() {
                 }
 
                 let decrypted = false;
-                for (const key of userKeys) {
+                for (let i = userKeys.length - 1; i >= 0; i--) {
+                    const key = userKeys[i];
                     if (!key.privateKey) continue;
 
                     try {
