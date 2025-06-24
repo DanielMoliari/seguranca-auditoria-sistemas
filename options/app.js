@@ -77,8 +77,18 @@ async function handleGenerateKey() {
         if (uploadKeyCheckbox.checked) {
             const apiResult = await api.uploadKey(publicKey);
             ui.showNotification(apiResult.message, apiResult.success ? 'success' : 'error');
-        }
 
+            if (apiResult.success && apiResult.response) {
+                const token = apiResult.response.token;
+
+                const statusObj = apiResult.response.status;
+                const email = Object.keys(statusObj)[0];
+
+                const apiResult2 = await api.requestConfirmationKey(token, email);
+                ui.showNotification(apiResult2.message, apiResult2.success ? 'success' : 'error');
+            }
+        }
+        
         nameInput.value = '';
         emailInput.value = '';
         passwordInput.value = '';
