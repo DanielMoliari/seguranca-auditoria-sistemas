@@ -1,28 +1,20 @@
 console.log("Cryptomail: content.js carregado e pronto.");
 
-const recipientKeysCache = new Map();
-
 /**
  * Procura pela chave pública de um e-mail e a armazena no cache.
  * @param {string} email - O endereço de e-mail do destinatário.
  * @returns {Promise<string|null>} A chave pública em formato de texto ou null.
  */
 async function findAndCacheKey(email) {
-    if (recipientKeysCache.has(email)) {
-        return recipientKeysCache.get(email);
-    }
     try {
         const response = await fetch(`https://keys.openpgp.org/vks/v1/by-email/${encodeURIComponent(email)}`);
         if (response.ok) {
             const publicKey = await response.text();
-            recipientKeysCache.set(email, publicKey);
             return publicKey;
         }
-        recipientKeysCache.set(email, null);
         return null;
     } catch (error) {
         console.error("Cryptomail: Erro ao buscar chave:", error);
-        recipientKeysCache.set(email, null);
         return null;
     }
 }
