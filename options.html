@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptomail - Gestão de Chaves</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <header>
+        <img src="icons/icon48.png" alt="Logo">
+        <h1>Cryptomail Key Management</h1>
+    </header>
+
+    <main class="container">
+        <div id="initialSetup" class="card hidden">
+            <h2>Setup</h2>
+            <p class="notice">Seu chaveiro ainda não contém um par de chaves. É necessário gerar uma chave para criptografar e descriptografar mensagens.</p>
+            <button id="showGenerateFormBtn">Gerar Chave</button>
+            <button id="showImportFormBtn">Importar Chave</button>
+        </div>
+
+        <div id="generateKeyForm" class="card hidden">
+            <h2><a href="#" class="back-link">&larr; Voltar</a> Gerar Chave</h2>
+            <div class="form-group">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" placeholder="Seu nome completo">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="seu.email@exemplo.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Senha (Passphrase)</label>
+                <input type="password" id="password" placeholder="Uma senha forte para proteger sua chave">
+            </div>
+             <div class="form-group">
+                <label for="reenterPassword">Repita a Senha</label>
+                <input type="password" id="reenterPassword" placeholder="Confirme sua senha">
+            </div>
+            <div class="form-group checkbox">
+                <input type="checkbox" id="uploadKey" checked>
+                <label for="uploadKey">Enviar chave pública para o servidor público (keys.openpgp.org)</label>
+            </div>
+            <button id="generateBtn">Gerar</button>
+        </div>
+
+        <div id="importKeyForm" class="card hidden">
+            <h2><a href="#" class="back-link">&larr; Voltar</a> Importar Chave</h2>
+            <p>Cole o texto da sua chave pública ou do par de chaves abaixo.</p>
+            <div class="form-group">
+                <textarea id="keyToImport" rows="10" placeholder="-----BEGIN PGP PUBLIC KEY BLOCK-----..."></textarea>
+            </div>
+            <button id="importBtn">Importar Chaves</button>
+        </div>
+
+        <div id="keyManagement" class="card hidden">
+            <h2>Meu Chaveiro</h2>
+            <div id="keyList">
+                </div>
+            <div class="key-actions">
+                 <button id="addNewKeyBtn">+ Gerar Nova Chave</button>
+                 <button id="importNewKeyBtn">Importar Chave</button>
+            </div>
+        </div>
+
+        <div id="generationSuccess" class="card hidden">
+            <h2>Chave Gerada com Sucesso!</h2>
+            <p class="notice notice-warning">
+                <strong>Ação Crítica de Segurança:</strong> Salve seu Certificado de Revogação.
+                Este arquivo é a única maneira de invalidar sua chave se você perder sua senha ou se ela for comprometida.
+                Guarde-o em um lugar seguro e separado da sua chave.
+            </p>
+            <button id="downloadRevocationBtn">Baixar Certificado de Revogação</button>
+            <a href="#" id="finishGenerationBtn" class="finish-link">Concluir</a>
+        </div>
+
+        <div id="keyDetails" class="card hidden">
+             </div>
+
+        <div id="notification" class="hidden"></div>
+    </main>
+
+    <script src="lib/openpgp.min.js"></script>
+    <script type="module" src="options.js"></script>
+</body>
+</html>
