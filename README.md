@@ -20,7 +20,8 @@ Primeiro, clone a branch development do projeto para a sua máquina local.
 
 Abra o seu terminal e execute os seguintes comandos:
 
-```# Clone a branch de desenvolvimento diretamente
+```
+# Clone a branch de desenvolvimento diretamente
 git clone -b git@github.com:DanielMoliari/seguranca-auditoria-sistemas.git
 
 # Entre na pasta do projeto que foi criada
