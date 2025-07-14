@@ -1,0 +1,251 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: white;
+    padding: 15px 30px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    height: 32px;
+    margin-right: 15px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.notice {
+    background-color: #fffbe6;
+    border: 1px solid #ffe58f;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.form-group.checkbox input {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #c9302c;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #555;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+#keyList {
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.key-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.key-entry:last-child {
+    border-bottom: none;
+}
+
+.key-info span {
+    margin-right: 20px;
+}
+
+.key-info .key-id {
+    font-family: monospace;
+    color: #777;
+}
+
+.key-entry-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s;
+}
+
+.icon-btn:hover {
+    color: #d9534f;
+    background: none;
+}
+
+.details-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+.key-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+#notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    z-index: 1000;
+}
+
+#notification.success {
+    background-color: #5cb85c;
+}
+
+#notification.error {
+    background-color: #d9534f;
+}
+
+/* Estilos para a página de detalhes da chave */
+.details-actions {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.action-btn-disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.action-btn-disabled:hover {
+    background-color: #ccc;
+}
+
+.detail-section {
+    margin-bottom: 30px;
+}
+
+.detail-section h3 {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.user-id-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.status-valid {
+    color: #5cb85c;
+    font-weight: bold;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detail-label {
+    color: #666;
+    font-size: 14px;
+}
+
+.detail-value {
+    font-family: monospace;
+    color: #333;
+}
+
+.fingerprint-item {
+    grid-column: 1 / -1;
+}
+
+.back-to-list-link {
+    text-decoration: none;
+    color: #666;
+    font-weight: normal;
+}
+
+.back-to-list-link:hover {
+    color: #d9534f;
+}
